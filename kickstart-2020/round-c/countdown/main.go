@@ -6,10 +6,6 @@ import (
 	"os"
 )
 
-func solve() {
-
-}
-
 func main() {
 	io := newFastIO()
 	defer io.Flush()
@@ -17,8 +13,22 @@ func main() {
 	var cases int
 	io.Read(&cases)
 	for caseID := 1; caseID <= cases; caseID++ {
-		solve()
-		io.Write("Case #%d:\n", caseID)
+		var n, k, inp int
+		io.Read(&n, &k)
+		cur, ans := k+1, 0
+		for i := 0; i < n; i++ {
+			io.Read(&inp)
+			switch inp {
+			case cur - 1, k:
+				cur = inp
+				if cur == 1 {
+					ans++
+				}
+			default:
+				cur = k + 1
+			}
+		}
+		io.Write("Case #%d: %d\n", caseID, ans)
 	}
 }
 
