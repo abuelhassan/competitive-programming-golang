@@ -6,20 +6,16 @@ import (
 	"os"
 )
 
-func solve(p int, stacks [][]int) int {
+func solve(p int, stacks [][]int) interface{} {
 	n, m := len(stacks), len(stacks[0])
-	dp := newDP(2, p+1)
-	for j, sm := 0, 0; j <= p; j++ {
-		dp.set(0, j, sm)
-		if j < m {
-			sm += stacks[0][j]
+	dp := newDP(2, p+1, 0)
+	for i := 0; i < n; i++ {
+		for j := 0; j <= p; j++ {
+			dp.set(i, j, 0)
 		}
-	}
-	for i := 1; i < n; i++ {
-		dp.clear(i)
 		for j, sm := 0, 0; j <= m; j++ {
 			for k := 0; j+k <= p; k++ {
-				dp.set(i, j+k, max(dp.get(i, j+k), sm+dp.get(i-1, k)))
+				dp.set(i, j+k, max(dp.get(i, j+k).(int), sm+dp.get(i-1, k).(int)))
 			}
 			if j < m {
 				sm += stacks[i][j]
@@ -57,33 +53,31 @@ func main() {
 }
 
 type dpIface interface {
-	get(i, j int) int
-	set(i, j int, val int)
-	clear(i int)
+	get(i, j int) interface{}
+	set(i, j int, val interface{})
 }
 
-func newDP(h, w int) dpIface {
-	m := make([][]int, h)
+func newDP(h, w int, val interface{}) dpIface {
+	m := make([][]interface{}, h)
 	for i := 0; i < h; i++ {
-		m[i] = make([]int, w)
+		m[i] = make([]interface{}, w)
+		for j := 0; j < w; j++ {
+			m[i][j] = val
+		}
 	}
 	return &memo{m: m}
 }
 
 type memo struct {
-	m [][]int
+	m [][]interface{}
 }
 
-func (m memo) get(i, j int) int {
-	return m.m[i%len(m.m)][j]
+func (m memo) get(i, j int) interface{} {
+	return m.m[(i+len(m.m))%len(m.m)][j]
 }
 
-func (m *memo) set(i, j int, val int) {
-	m.m[i%len(m.m)][j] = val
-}
-
-func (m *memo) clear(i int) {
-	m.m[i%len(m.m)] = make([]int, len(m.m[0]))
+func (m *memo) set(i, j int, val interface{}) {
+	m.m[(i+len(m.m))%len(m.m)][j] = val
 }
 
 type fastIO struct {
