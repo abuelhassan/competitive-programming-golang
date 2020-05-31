@@ -15,7 +15,15 @@ func solve(p int, stacks [][]int) interface{} {
 		}
 		for j, sm := 0, 0; j <= m; j++ {
 			for k := 0; j+k <= p; k++ {
-				dp.set(i, j+k, max(dp.get(i, j+k).(int), sm+dp.get(i-1, k).(int)))
+				best := sm
+				if i > 0 {
+					best += dp.get(i-1, k).(int)
+				}
+				x := dp.get(i, j+k).(int)
+				if best < x {
+					best = x
+				}
+				dp.set(i, j+k, best)
 			}
 			if j < m {
 				sm += stacks[i][j]
@@ -23,13 +31,6 @@ func solve(p int, stacks [][]int) interface{} {
 		}
 	}
 	return dp.get(n-1, p)
-}
-
-func max(a, b int) int {
-	if a < b {
-		return b
-	}
-	return a
 }
 
 func main() {
@@ -73,11 +74,11 @@ type memo struct {
 }
 
 func (m memo) get(i, j int) interface{} {
-	return m.m[(i+len(m.m))%len(m.m)][j]
+	return m.m[i%len(m.m)][j]
 }
 
 func (m *memo) set(i, j int, val interface{}) {
-	m.m[(i+len(m.m))%len(m.m)][j] = val
+	m.m[i%len(m.m)][j] = val
 }
 
 type fastIO struct {
