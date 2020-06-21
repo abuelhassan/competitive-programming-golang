@@ -46,6 +46,7 @@ func main() {
 		var n int64
 		io.Read(&n)
 		ans := n
+		// The Inclusion-Exclusion Principle
 		for i := int64(2); i*i <= n; i++ {
 			ans += int64(mob[i]) * (n / (i * i))
 		}
