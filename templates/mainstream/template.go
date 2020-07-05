@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	//io := newFastIO()
-	//defer io.Flush()
+	io := newFastIO()
+	defer io.Flush()
 }
 
 type fastIO struct {
