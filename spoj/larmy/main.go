@@ -8,6 +8,7 @@ import (
 	"os"
 )
 
+// DP, Divide and Conquer Optimization
 func rowDivideAndConquer(l, r, optL, optR int, dpBefore []int, dpCur []int, cost [][]int) {
 	if l > r {
 		return
@@ -44,10 +45,8 @@ func main() {
 	}
 
 	cost := make([][]int, n)
-	for i := 0; i < n; i++ {
-		cost[i] = make([]int, n)
-	}
 	for i := n - 1; i >= 0; i-- {
+		cost[i] = make([]int, n)
 		for j := i - 1; j >= 0; j-- {
 			cost[i][j] += cost[i][j+1]
 			if row[i] < row[j] {
