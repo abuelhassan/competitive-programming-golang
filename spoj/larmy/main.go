@@ -9,7 +9,7 @@ import (
 )
 
 // DP, Divide and Conquer Optimization
-func rowDivideAndConquer(l, r, optL, optR int, dpBefore []int, dpCur []int, cost [][]int) {
+func rowDivideAndConquer(l, r, optL, optR int, dpBefore, dpCur []int, cost [][]int) {
 	if l > r {
 		return
 	}
