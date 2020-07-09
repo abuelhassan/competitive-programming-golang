@@ -7,30 +7,11 @@ import (
 )
 
 func main() {
-	io := newFastIO()
-	defer io.Flush()
-}
+	r := bufio.NewReader(os.Stdin)
+	w := bufio.NewWriter(os.Stdout)
+	defer w.Flush()
 
-type fastIO struct {
-	r *bufio.Reader
-	w *bufio.Writer
-}
-
-func newFastIO() fastIO {
-	return fastIO{
-		r: bufio.NewReader(os.Stdin),
-		w: bufio.NewWriter(os.Stdout),
-	}
-}
-
-func (io *fastIO) Read(args ...interface{}) {
-	_, _ = fmt.Fscan(io.r, args...)
-}
-
-func (io *fastIO) Write(format string, args ...interface{}) {
-	_, _ = fmt.Fprintf(io.w, format, args...)
-}
-
-func (io *fastIO) Flush() {
-	_ = io.w.Flush()
+	var n int
+	_, _ = fmt.Fscan(r, &n)
+	_, _ = fmt.Fprintf(w, "input: %d", n)
 }
