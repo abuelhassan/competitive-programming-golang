@@ -23,20 +23,19 @@ func rowDivideAndConquer(rowIdx, l, r, optL, optR int) {
 	}
 
 	var (
-		mid       = (l + r) >> 1
-		ans       = maxN * maxN
-		opt       = -1
-		prvRowIdx = (rowIdx + 1) % 2
+		mid = (l + r) >> 1
+		ans = maxN * maxN
+		opt = -1
 	)
 	for k := optL; k <= mid && k <= optR; k++ {
-		t := memo[prvRowIdx][k] + cost[mid][k+1]
+		t := memo[(rowIdx-1)%2][k] + cost[mid][k+1]
 		if t < ans {
 			ans = t
 			opt = k
 		}
 	}
 
-	memo[rowIdx][mid] = ans
+	memo[rowIdx%2][mid] = ans
 	rowDivideAndConquer(rowIdx, l, mid-1, optL, opt)
 	rowDivideAndConquer(rowIdx, mid+1, r, opt, optR)
 }
@@ -70,7 +69,7 @@ func main() {
 		memo[0][i] = cost[i][0]
 	}
 	for i := 1; i < m; i++ {
-		rowDivideAndConquer(i%2, 0, n-1, 0, n-1)
+		rowDivideAndConquer(i, 0, n-1, 0, n-1)
 	}
 	_, _ = fmt.Fprintf(w, "%d\n", memo[(m-1)%2][n-1])
 }
