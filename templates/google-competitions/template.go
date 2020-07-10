@@ -11,7 +11,7 @@ func solve() {
 }
 
 func main() {
-	io := newFastIO()
+	io := newBuffIO()
 	defer io.Flush()
 
 	var cases int
@@ -22,26 +22,26 @@ func main() {
 	}
 }
 
-type fastIO struct {
+type buffIO struct {
 	r *bufio.Reader
 	w *bufio.Writer
 }
 
-func newFastIO() fastIO {
-	return fastIO{
+func newBuffIO() buffIO {
+	return buffIO{
 		r: bufio.NewReader(os.Stdin),
 		w: bufio.NewWriter(os.Stdout),
 	}
 }
 
-func (io *fastIO) Read(args ...interface{}) {
+func (io *buffIO) Read(args ...interface{}) {
 	_, _ = fmt.Fscan(io.r, args...)
 }
 
-func (io *fastIO) Write(format string, args ...interface{}) {
+func (io *buffIO) Write(format string, args ...interface{}) {
 	_, _ = fmt.Fprintf(io.w, format, args...)
 }
 
-func (io *fastIO) Flush() {
+func (io *buffIO) Flush() {
 	_ = io.w.Flush()
 }
