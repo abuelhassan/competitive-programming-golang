@@ -9,25 +9,25 @@ import (
 func mobius(sz int) []int {
 	notPrime := make([]bool, sz)
 	primes := make([]int, 0)
-	for i := 2; i < len(notPrime); i++ {
+	for i := 2; i < sz; i++ {
 		if !notPrime[i] {
 			primes = append(primes, i)
-			for j := i * i; j < len(notPrime); j += i {
+			for j := i * i; j < sz; j += i {
 				notPrime[j] = true
 			}
 		}
 	}
 	mob := make([]int, sz)
-	for i := 0; i < len(mob); i++ {
+	for i := 0; i < sz; i++ {
 		mob[i] = 1
 	}
 	for _, p := range primes {
-		for j := p * p; j < len(mob); j += p * p {
+		for j := p * p; j < sz; j += p * p {
 			mob[j] = 0
 		}
 	}
 	for _, p := range primes {
-		for j := p; j < len(mob); j += p {
+		for j := p; j < sz; j += p {
 			mob[j] = mob[j] * -1
 		}
 	}
@@ -39,7 +39,8 @@ func main() {
 	w := bufio.NewWriter(os.Stdout)
 	defer w.Flush()
 
-	mob := mobius(10000001)
+	const mxSZ = 10000001
+	mob := mobius(mxSZ)
 
 	var t int
 	_, _ = fmt.Fscan(r, &t)
