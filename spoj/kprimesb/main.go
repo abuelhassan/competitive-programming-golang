@@ -18,22 +18,24 @@ func lcm(a, b int) int {
 }
 
 func main() {
-	io := newFastIO()
-	defer io.Flush()
+	r := bufio.NewReader(os.Stdin)
+	w := bufio.NewWriter(os.Stdout)
+	defer w.Flush()
 
-	isPrime := make([]bool, 1000001)
-	for i := 2; i < len(isPrime); i++ {
+	const mxN = 1000001
+	var isPrime = [mxN]bool{}
+	for i := 2; i < mxN; i++ {
 		isPrime[i] = true
 	}
-	for i := 2; i*i < len(isPrime); i++ {
+	for i := 2; i*i < mxN; i++ {
 		if isPrime[i] {
-			for j := i * i; j < len(isPrime); j += i {
+			for j := i * i; j < mxN; j += i {
 				isPrime[j] = false
 			}
 		}
 	}
-	primesCnt := make([]int, len(isPrime))
-	for i, cnt := 2, 0; i < len(isPrime); i++ {
+	primesCnt := [mxN]int{}
+	for i, cnt := 2, 0; i < mxN; i++ {
 		if isPrime[i] {
 			cnt++
 		}
@@ -41,13 +43,13 @@ func main() {
 	}
 
 	var t int
-	io.Read(&t)
+	_, _ = fmt.Fscan(r, &t)
 	for caseID := 1; caseID <= t; caseID++ {
 		var n, k int
-		io.Read(&n, &k)
+		_, _ = fmt.Fscan(r, &n, &k)
 		primes := make([]int, k)
 		for i := 0; i < k; i++ {
-			io.Read(&primes[i])
+			_, _ = fmt.Fscan(r, &primes[i])
 		}
 
 		// The Inclusion-Exclusion Principle
@@ -75,30 +77,6 @@ func main() {
 				ans++
 			}
 		}
-		io.Write("Case %d: %d\n", caseID, ans)
+		_, _ = fmt.Fprintf(w, "Case %d: %d\n", caseID, ans)
 	}
-}
-
-type fastIO struct {
-	r *bufio.Reader
-	w *bufio.Writer
-}
-
-func newFastIO() fastIO {
-	return fastIO{
-		r: bufio.NewReader(os.Stdin),
-		w: bufio.NewWriter(os.Stdout),
-	}
-}
-
-func (io *fastIO) Read(args ...interface{}) {
-	_, _ = fmt.Fscan(io.r, args...)
-}
-
-func (io *fastIO) Write(format string, args ...interface{}) {
-	_, _ = fmt.Fprintf(io.w, format, args...)
-}
-
-func (io *fastIO) Flush() {
-	_ = io.w.Flush()
 }

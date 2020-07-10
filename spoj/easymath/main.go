@@ -38,39 +38,16 @@ func solve(n int64, factors []int64) int64 {
 }
 
 func main() {
-	io := newFastIO()
-	defer io.Flush()
+	r := bufio.NewReader(os.Stdin)
+	w := bufio.NewWriter(os.Stdout)
+	defer w.Flush()
 
 	var t int
-	io.Read(&t)
+	_, _ = fmt.Fscan(r, &t)
 	for c := 0; c < t; c++ {
 		var n, m, a, d int64
-		io.Read(&n, &m, &a, &d)
+		_, _ = fmt.Fscan(r, &n, &m, &a, &d)
 		factors := []int64{a, a + d, a + (d * 2), a + (d * 3), a + (d * 4)}
-		io.Write("%d\n", solve(m, factors)-solve(n-1, factors))
+		_, _ = fmt.Println(solve(m, factors) - solve(n-1, factors))
 	}
-}
-
-type fastIO struct {
-	r *bufio.Reader
-	w *bufio.Writer
-}
-
-func newFastIO() fastIO {
-	return fastIO{
-		r: bufio.NewReader(os.Stdin),
-		w: bufio.NewWriter(os.Stdout),
-	}
-}
-
-func (io *fastIO) Read(args ...interface{}) {
-	_, _ = fmt.Fscan(io.r, args...)
-}
-
-func (io *fastIO) Write(format string, args ...interface{}) {
-	_, _ = fmt.Fprintf(io.w, format, args...)
-}
-
-func (io *fastIO) Flush() {
-	_ = io.w.Flush()
 }
