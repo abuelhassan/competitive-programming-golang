@@ -1,3 +1,5 @@
+// Given an integer array nums, return all the (unique) triplets that sum up to 0.
+// 2 pointers approach. O(N) time complexity.
 package main
 
 import (
@@ -69,10 +71,9 @@ func main() {
 	}
 
 	for _, t := range tt {
-		out := threeSum(t.inp)
-		if !eq(out, t.out) {
+		if out := threeSum(t.inp); !eq(out, t.out) {
 			panic(fmt.Sprintf("\ninput: %v\noutput: %v\nexpected: %v\n", t.inp, out, t.out))
 		}
 	}
-	fmt.Println("Todo bien")
+	fmt.Println("Todo bien!")
 }
