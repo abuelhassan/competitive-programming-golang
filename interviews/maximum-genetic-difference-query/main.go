@@ -29,7 +29,7 @@ type (
 )
 
 func update(root *trieNode, val, inc int) {
-	for i := bitsLen; i >= 0; i-- {
+	for i := bitsLen - 1; i >= 0; i-- {
 		bit := (val >> i) & 1
 		if root.children[bit] == nil {
 			root.children[bit] = &trieNode{}
@@ -41,7 +41,7 @@ func update(root *trieNode, val, inc int) {
 
 func maxXOR(root *trieNode, val int) int {
 	ans := 0
-	for i := bitsLen; i >= 0; i-- {
+	for i := bitsLen - 1; i >= 0; i-- {
 		bit := (val >> i) & 1
 		// invert bit if possible.
 		if root.children[1-bit] != nil && root.children[1-bit].cnt > 0 {
