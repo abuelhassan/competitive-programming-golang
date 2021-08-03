@@ -15,10 +15,18 @@
 
 ## Divide and Conquer DP
 
-#### Problems
+##### Problems
 - [X] SPOJ: [LARMY](https://www.spoj.com/problems/LARMY/)
 - [ ] KATTIS: [money](https://open.kattis.com/problems/money)
 
 ##### Resources
 [CP-Algorithms](https://cp-algorithms.com/dynamic_programming/divide-and-conquer-dp.html)
  
+## Finding bridges in a graph (Offline)
+In a connected undirected graph, a bridge is an edge that if removed the graph becomes disconnected.
+
+##### Problems
+- [X] Leetcode: [Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)
+
+##### Resources
+[CP-Algorithms](https://cp-algorithms.com/graph/bridge-searching.html)
