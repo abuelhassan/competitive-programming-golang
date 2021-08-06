@@ -25,7 +25,7 @@ func getBridges(u int, timer *int, tin, low []int, adj [][][2]int, edges [][2]in
 		}
 		getBridges(v, timer, tin, low, adj, edges, vis, bridges)
 		low[u] = min(low[u], low[v])
-		if low[v] > tin[u] { // there is a back edge from v to u or one of u's ancestors.
+		if low[v] > tin[u] { // there is no back edges from v to u or any of u's ancestors.
 			bridges[edgeID] = struct{}{}
 		}
 	}

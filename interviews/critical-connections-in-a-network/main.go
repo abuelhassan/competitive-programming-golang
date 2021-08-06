@@ -22,7 +22,7 @@ func dfs(u, p int, timer *int, inTime, low []int, adj [][]int, bridges *[][]int)
 		}
 		dfs(v, u, timer, inTime, low, adj, bridges)
 		low[u] = min(low[u], low[v])
-		if low[v] > inTime[u] { // there is a back edge from v to u or one of u's ancestors.
+		if low[v] > inTime[u] { // there is no back edges from v to u or any of u's ancestors.
 			*bridges = append(*bridges, []int{u, v})
 		}
 	}
