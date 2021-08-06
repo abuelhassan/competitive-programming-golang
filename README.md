@@ -12,7 +12,7 @@
 
 ##### Resources
 
-[CP-Algorithms](https://cp-algorithms.com/combinatorics/inclusion-exclusion.html)
+- [CP-Algorithms](https://cp-algorithms.com/combinatorics/inclusion-exclusion.html)
 
 ## Divide and Conquer DP
 
@@ -23,7 +23,7 @@
 
 ##### Resources
 
-[CP-Algorithms](https://cp-algorithms.com/dynamic_programming/divide-and-conquer-dp.html)
+- [CP-Algorithms](https://cp-algorithms.com/dynamic_programming/divide-and-conquer-dp.html)
 
 ## Connected components, bridges, articulations points
 
@@ -39,5 +39,5 @@
 
 ##### Resources
 
-[CP-Algorithms Finding Bridge Offline](https://cp-algorithms.com/graph/bridge-searching.html)
-[CP-Algorithms Strong Orientation](https://cp-algorithms.com/graph/strong-orientation.html)
+- [CP-Algorithms - Finding Bridge Offline](https://cp-algorithms.com/graph/bridge-searching.html)
+- [CP-Algorithms - Strong Orientation](https://cp-algorithms.com/graph/strong-orientation.html)
