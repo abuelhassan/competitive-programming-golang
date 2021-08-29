@@ -35,8 +35,7 @@
 
 ##### Problems
 
-- [X] Leetcode: [Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/) (
-  Finding Bridges Offline)
+- [X] Leetcode: [Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/) (Finding Bridges Offline)
 - [X] Codeforces: [Round 377 - Div2 F - Tourist Reform](https://codeforces.com/contest/732/problem/F) (Strong
   Orientation)
 
