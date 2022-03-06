@@ -29,7 +29,7 @@
 
 ##### Definitions (that may not be accurate)
 - In a connected undirected graph, a **bridge** is an edge that if removed the graph becomes disconnected.
-- In a connected undirected graph, an **articulation point** or a **cur vertex** is a node that if removed the graph
+- In a connected undirected graph, an **articulation point** or a **cut vertex** is a node that if removed the graph
   becomes disconnected.
 - A **strongly connected component** is a graph where every two nodes are reachable from each others.
 
