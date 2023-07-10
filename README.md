@@ -43,3 +43,10 @@
 
 - [CP-Algorithms - Finding Bridge Offline](https://cp-algorithms.com/graph/bridge-searching.html)
 - [CP-Algorithms - Strong Orientation](https://cp-algorithms.com/graph/strong-orientation.html)
+
+## RMQ
+
+##### Problems
+
+- [X] Spoj: [THRBL](https://www.spoj.com/problems/THRBL/) (Simple - Sparse Table)
+
