@@ -36,8 +36,7 @@
 ##### Problems
 
 - [X] Leetcode: [Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/) (Finding Bridges Offline)
-- [X] Codeforces: [Round 377 - Div2 F - Tourist Reform](https://codeforces.com/contest/732/problem/F) (Strong
-  Orientation)
+- [X] Codeforces: [Round 377 - Div2 F - Tourist Reform](https://codeforces.com/contest/732/problem/F) (Strong Orientation)
 
 ##### Resources
 
@@ -49,4 +48,5 @@
 ##### Problems
 
 - [X] Spoj: [THRBL](https://www.spoj.com/problems/THRBL/) (Simple - Sparse Table)
+- [X] Codeforces: [Round 475 - Div2 D - CGCDSSQ](https://codeforces.com/contest/475/problem/D)
 

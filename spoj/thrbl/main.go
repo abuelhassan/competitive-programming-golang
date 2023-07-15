@@ -16,7 +16,7 @@ func main() {
 
 	lg := make([]int, n+1)
 	for i := 2; i <= n; i++ {
-		lg[i] = lg[i/2] + 1
+		lg[i] = lg[i>>1] + 1
 	}
 
 	st := make([][]int, lg[n]+1)
