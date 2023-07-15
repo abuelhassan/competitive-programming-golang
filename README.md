@@ -48,5 +48,5 @@
 ##### Problems
 
 - [X] Spoj: [THRBL](https://www.spoj.com/problems/THRBL/) (Simple - Sparse Table)
-- [X] Codeforces: [Round 475 - Div2 D - CGCDSSQ](https://codeforces.com/contest/475/problem/D)
+- [X] Codeforces: [Round 475 - Div2 D - CGCDSSQ](https://codeforces.com/contest/475/problem/D) (Binary Search + Sparse Table)
 
