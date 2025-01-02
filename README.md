@@ -12,7 +12,7 @@
 
 ##### Resources
 
-- [CP-Algorithms - Inclusion Inclusion-Exclusion Principle](https://cp-algorithms.com/combinatorics/inclusion-exclusion.html)
+- [CP-Algorithms - The Inclusion-Exclusion Principle](https://cp-algorithms.com/combinatorics/inclusion-exclusion.html)
 
 ## Divide and Conquer DP
 
