@@ -73,15 +73,6 @@ func matrixRankTransform(matrix [][]int) [][]int {
 	return matrix
 }
 
-func max(a int, args ...int) int {
-	for _, b := range args {
-		if b > a {
-			a = b
-		}
-	}
-	return a
-}
-
 func main() {
 	tt := []struct {
 		in  [][]int

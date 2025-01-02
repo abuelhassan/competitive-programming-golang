@@ -6,6 +6,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 const maxN = 5001
@@ -45,10 +47,11 @@ func main() {
 	w := bufio.NewWriter(os.Stdout)
 	defer w.Flush()
 
-	var n, m int
-	_, _ = fmt.Fscan(r, &n, &m)
+	inp := readIntLine(r)
+	n, m := inp[0], inp[1]
+	inp = readIntLine(r)
 	for i := 0; i < n; i++ {
-		_, _ = fmt.Fscan(r, &row[i])
+		row[i] = inp[i]
 	}
 
 	for i := n - 1; i >= 0; i-- {
@@ -72,4 +75,20 @@ func main() {
 		rowDivideAndConquer(i, 0, n-1, 0, n-1)
 	}
 	_, _ = fmt.Fprintf(w, "%d\n", memo[(m-1)%2][n-1])
+}
+
+func readLine(in *bufio.Reader) []string {
+	line, _ := in.ReadString('\n')
+	line = strings.ReplaceAll(line, "\r", "")
+	line = strings.ReplaceAll(line, "\n", "")
+	return strings.Split(line, " ")
+}
+
+func readIntLine(in *bufio.Reader) []int {
+	tokens := readLine(in)
+	nums := make([]int, len(tokens))
+	for i, token := range tokens {
+		nums[i], _ = strconv.Atoi(token)
+	}
+	return nums
 }

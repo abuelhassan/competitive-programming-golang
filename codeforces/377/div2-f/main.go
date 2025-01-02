@@ -114,10 +114,3 @@ func main() {
 		_, _ = fmt.Fprintf(w, "%d %d\n", edge[0]+1, edge[1]+1)
 	}
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

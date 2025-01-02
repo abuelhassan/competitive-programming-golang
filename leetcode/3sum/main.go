@@ -1,5 +1,4 @@
-// Given an integer array nums, return all the (unique) triplets that sum up to 0.
-// 2 pointers approach. O(N) time complexity.
+// https://leetcode.com/problems/3sum/
 package main
 
 import (

@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/lfu-cache/
 package main
 
 import (
@@ -101,7 +102,6 @@ func (lfu *LFUCache) incrementFrequency(key int) {
 }
 
 func main() {
-	// TODO: add unit tests
 	r := bufio.NewReader(os.Stdin)
 	w := bufio.NewWriter(os.Stdout)
 	defer w.Flush()
